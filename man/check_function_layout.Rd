@@ -15,9 +15,10 @@ check_function_layout(object, function_name = NULL,
 \arguments{
 \item{object}{The function to be checked.}
 
-\item{function_name}{The name to be used for reporting. If NULL, it is
-substituted from the object given. Argument is mainly there to pass name for
-functions retrieved via \code{\link{get}} in the wrapper function
+\item{function_name}{The name to be used for reporting. Stick with the
+default: If NULL, it is taken from the \code{object} given. 
+Argument is used internally to pass function names
+retrieved via \code{\link{get}} in the wrapper function
 \code{\link{check_functions_in_file}}.}
 
 \item{max_lines_of_code}{See \code{\link{check_num_lines_of_code}}.}
@@ -44,9 +45,5 @@ The functions catches the messages of "cleanr"-conditions
 \code{\link{throw}}s them.
 }
 \examples{
-print(check_function_layout(check_num_lines))
+print(cleanr::check_function_layout(cleanr::check_num_lines))
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
-

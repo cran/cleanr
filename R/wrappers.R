@@ -9,11 +9,11 @@ NULL
 #' \code{\link{throw}}n by \code{\link{function_checks}} and, if it caught any,
 #' \code{\link{throw}}s them.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param object The function to be checked.
-#' @param function_name The name to be used for reporting. If NULL, it is
-#' substituted from the object given. Argument is mainly there to pass name for
-#' functions retrieved via \code{\link{get}} in the wrapper function
+#' @param function_name The name to be used for reporting. Stick with the
+#' default: If NULL, it is taken from the \code{object} given. 
+#' Argument is used internally to pass function names
+#' retrieved via \code{\link{get}} in the wrapper function
 #' \code{\link{check_functions_in_file}}.
 #' @param max_lines_of_code See \code{\link{check_num_lines_of_code}}.
 #' @param max_lines See \code{\link{check_num_lines}}.
@@ -24,7 +24,7 @@ NULL
 #' @return invisible(TRUE), but see \emph{Details}.
 #' @export
 #' @examples
-#' print(check_function_layout(check_num_lines))
+#' print(cleanr::check_function_layout(cleanr::check_num_lines))
 check_function_layout <- function(object, function_name = NULL,
                                   max_lines_of_code =
                                   get_cleanr_options("max_lines_of_code"),
@@ -82,15 +82,14 @@ check_function_layout <- function(object, function_name = NULL,
 #' by \code{\link{file_checks}} and, if it caught any, \code{\link{throw}}s
 #' them.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param path Path to the file to be checked.
 #' @param max_file_length See \code{\link{check_file_length}}.
 #' @param max_file_width See \code{\link{check_file_width}}.
 #' @return invisible(TRUE), but see \emph{Details}.
 #' @export
 #' @examples
-#' print(check_file_layout(system.file("source", "R", "checks.R",
-#'                                     package = "cleanr")))
+#' print(cleanr::check_file_layout(system.file("source", "R", "checks.R",
+#'                                             package = "cleanr")))
 check_file_layout <- function(path,
                               max_file_length =
                                   get_cleanr_options("max_file_length"),
@@ -120,14 +119,13 @@ check_file_layout <- function(path,
 #' \code{\link{throw}}n by \code{\link{check_function_layout}} and,
 #' if it caught any, \code{\link{throw}}s them.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param path Path to the file to be checked.
 #' @param ... Arguments to be passed to \code{\link{check_function_layout}}.
 #' @return invisible(TRUE), but see \emph{Details}.
 #' @export
 #' @examples
-#' print(check_functions_in_file(system.file("source", "R", "utils.R",
-#'                                     package = "cleanr")))
+#' print(cleanr:::check_functions_in_file(system.file("source", "R", "utils.R",
+#'                                                    package = "cleanr")))
 check_functions_in_file <- function(path, ...) {
     checkmate::assertFile(path, access = "r")
     findings <- NULL
@@ -162,14 +160,13 @@ check_functions_in_file <- function(path, ...) {
 #' and, if it
 #' caught any, \code{\link{throw}}s them.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param path Path to the file to be checked.
 #' @param ... Arguments to be passed to \code{\link{check_functions_in_file}} or
 #' \code{\link{check_file_layout}}.
 #' @return invisible(TRUE), but see \emph{Details}.
 #' @export
 #' @examples
-#' print(check_file(system.file("source", "R", "utils.R",
+#' print(cleanr::check_file(system.file("source", "R", "utils.R",
 #'                                      package = "cleanr")))
 check_file <- function(path, ...) {
     checkmate::assertFile(path, access = "r")
@@ -211,7 +208,14 @@ check_file <- function(path, ...) {
     arguments_to_use <- arguments_to_use[names(arguments_to_use) !=
                                          "function_name"]
     finding <- tryCatch(do.call("check_functions_in_file", arguments_to_use),
-                        cleanr = function(e) return(e[["message"]]))
+                        cleanr = function(e) return(e[["message"]]),
+                        error = function(e) return(e))
+    if (inherits(finding, "error") && !inherits(finding, "cleanr") ) {
+        finding[["message"]] <- paste0(finding[["message"]],
+                                       ". Probably due to failed ",
+                                       "S4 method loading.")
+        stop(finding)
+    }
     findings <- c(findings, finding)
     findings <- tidy_findings(findings)
     if (! is.null(findings)) {
@@ -229,24 +233,71 @@ check_file <- function(path, ...) {
 #' \code{\link{throw}}n by \code{\link{check_file}} and, if it caught any,
 #' \code{\link{throw}}s them.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param path Path to the directory to be checked.
 #' @param pattern A pattern to search files with, see \code{\link{list.files}}.
 #' @param recursive Search the directory recursively?
-#' Passed to \code{\link{list.files}}.
+#' See \code{\link{list.files}}.
 #' @param ... Arguments to be passed to \code{\link{check_file}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+#' but see \emph{Details}.
+#' @seealso \code{\link{check_package}}.
 #' @export
 #' @examples
 #' # load internal functions first.
 #' load_internal_functions("cleanr")
-#' print(check_directory(system.file("source", "R", package = "cleanr"),
-#'                       max_num_arguments = 8, max_file_width = 90,
-#'                       check_return = FALSE))
+#' print(cleanr::check_directory(system.file("source", "R", package = "cleanr"),
+#'                               max_num_arguments = 8, max_file_width = 90,
+#'                               max_file_length = 350,
+#'                               check_return = FALSE))
 check_directory <- function(path, pattern = "\\.[rR]$", recursive = FALSE,
                             ...) {
     checkmate::assertDirectory(path, access = "r")
     paths <- normalizePath(sort(list.files(path, pattern, recursive = recursive,
+                                           full.names = TRUE)))
+    findings <- NULL
+    for (source_file in paths) {
+        finding <- tryCatch(check_file(source_file, ...),
+                            cleanr = function(e) return(e[["message"]]))
+        findings <- c(findings, finding)
+    }
+    findings <- tidy_findings(findings)
+    if (! is.null(findings)) {
+        throw(paste(path, names(findings),
+                    findings, sep = " ", collapse = "\n"))
+    }
+    return(invisible(TRUE))
+}
+
+#' Check a Package
+#'
+#' Run \code{\link{check_file}} on a package's source.
+#'
+#' The function catches the messages of "cleanr"-conditions
+#' \code{\link{throw}}n by \code{\link{check_file}} and, if it caught any,
+#' \code{\link{throw}}s them.
+#'
+#' @param path Path to the package to be checked.
+#' @param pattern A pattern to search files with, see \code{\link{list.files}}.
+#' @param ... Arguments to be passed to \code{\link{check_file}}.
+#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+#' but see \emph{Details}.
+#' @export
+#' @examples
+#' # create a fake package first:
+#' package_path <- file.path(tempdir(), "fake")
+#' usethis::create_package(package_path, fields = NULL,
+#'                         rstudio = FALSE, open = FALSE)
+#' directory <- system.file("runit_tests", "source", "R_s4",
+#'                          package = "cleanr") 
+#' file.copy(list.files(directory, full.names = TRUE), file.path(package_path,
+#'                                                               "R"))
+#' RUnit::checkTrue(cleanr::check_package(package_path, check_return = FALSE))
+check_package <- function(path, pattern = "\\.[rR]$", ...) {
+    checkmate::assertDirectory(path, access = "r")
+    package_root <- rprojroot::find_root(rprojroot::is_r_package, path)
+    pkgload::load_all(package_root)
+    paths <- normalizePath(sort(list.files(file.path(package_root, "R"),
+                                           pattern = pattern,
                                            full.names = TRUE)))
     findings <- NULL
     for (source_file in paths) {

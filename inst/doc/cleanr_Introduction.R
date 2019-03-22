@@ -2,7 +2,7 @@
 cleanr::set_cleanr_options(reset = TRUE)
 
 ## ------------------------------------------------------------------------
-path <- system.file("tests", "runit", "wrappers.r", package = "cleanr")
+path <- system.file("runit_tests", "wrappers.r", package = "cleanr")
 print(cleanr::check_file_layout(path))
 
 ## ------------------------------------------------------------------------
@@ -50,7 +50,7 @@ print(tools::assertCondition(suppressWarnings(cleanr::check_functions_in_file(pa
 print(suppressWarnings(cleanr::check_file(path)))
 
 ## ------------------------------------------------------------------------
-path <- system.file("tests", "runit", package = "cleanr")
+path <- system.file("runit_tests", package = "cleanr")
 print(suppressWarnings(cleanr::check_directory(path,
                                                check_return = FALSE)))
 

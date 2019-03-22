@@ -27,10 +27,6 @@ environment.
 \examples{
 load_internal_functions("cleanr")
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
 \seealso{
 \code{\link[codetools:checkUsageEnv]{checkUsageEnv in codetools}}.
 }
-

@@ -23,18 +23,14 @@ looking for a static code analyzer, check out lintr
 (\url{https://cran.r-project.org/package=lintr} or
 \url{https://github.com/jimhester/lintr}).
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
 \seealso{
 Packages
 \pkg{codetools}
 (\url{https://cran.r-project.org/package=codetools}),
 \pkg{formatR}
-(\url{https://cran.r-project.org/package=formatR}).
+(\url{https://cran.r-project.org/package=formatR})
 and
 \pkg{lintr}
 (\url{https://cran.r-project.org/package=lintr}).
 }
 \keyword{package}
-

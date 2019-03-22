@@ -12,12 +12,13 @@ check_directory(path, pattern = "\\\\.[rR]$", recursive = FALSE, ...)
 \item{pattern}{A pattern to search files with, see \code{\link{list.files}}.}
 
 \item{recursive}{Search the directory recursively?
-Passed to \code{\link{list.files}}.}
+See \code{\link{list.files}}.}
 
 \item{...}{Arguments to be passed to \code{\link{check_file}}.}
 }
 \value{
-invisible(TRUE), but see \emph{Details}.
+\code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+but see \emph{Details}.
 }
 \description{
 Run \code{\link{check_file}} on files in a directory.
@@ -30,11 +31,11 @@ The function catches the messages of "cleanr"-conditions
 \examples{
 # load internal functions first.
 load_internal_functions("cleanr")
-print(check_directory(system.file("source", "R", package = "cleanr"),
-                      max_num_arguments = 8, max_file_width = 90,
-                      check_return = FALSE))
+print(cleanr::check_directory(system.file("source", "R", package = "cleanr"),
+                              max_num_arguments = 8, max_file_width = 90,
+                              max_file_length = 350,
+                              check_return = FALSE))
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
+\seealso{
+\code{\link{check_package}}.
 }
-

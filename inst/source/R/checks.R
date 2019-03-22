@@ -28,21 +28,22 @@ NULL
 #' semicolon.
 #' It just checks if you use \code{\link{return}} at all.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param object The function to be checked.
 #' Should have been sourced with keep.source = TRUE (see
 #' \code{\link{get_function_body}}).
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+#' but see \emph{Details}.
 #' @name function_checks
 #' @examples
-#' print(check_num_arguments(check_num_arguments))
-#' print(check_nesting_depth(check_nesting_depth))
-#' print(check_num_lines(check_num_lines))
-#' print(check_num_lines_of_code(check_num_lines_of_code))
-#' print(check_return(check_return))
+#' print(cleanr::check_num_arguments(cleanr::check_num_arguments))
+#' print(cleanr::check_nesting_depth(cleanr::check_nesting_depth))
+#' print(cleanr::check_num_lines(cleanr::check_num_lines))
+#' print(cleanr::check_num_lines_of_code(cleanr::check_num_lines_of_code))
+#' print(cleanr::check_return(cleanr::check_return))
 #' # R reformats functions on import (see
 #' # help(get_function_body, package = "cleanr")), so we need 90 characters:
-#' print(check_line_width(check_line_width, max_line_width = 90))
+#' print(cleanr::check_line_width(cleanr::check_line_width,
+#'                                max_line_width = 90))
 NULL
 
 
@@ -82,9 +83,7 @@ check_nesting_depth <- function(object,
                              gsub("[^\\{\\}]", "", function_body),
                              fixed = TRUE),
                         collapse = "")
-        # the first (opening) brace is from the function definition,
-        # so we skip it via substring
-        consectutive_openings <- strsplit(substring(braces, 2), "}",
+        consectutive_openings <- strsplit(braces, "}",
                                           fixed = TRUE)[[1]]
         nesting_depths <- nchar(consectutive_openings)
         nesting_depth <- max(nesting_depths)
@@ -191,7 +190,7 @@ check_return <- function(object,
 #' A set of tiny functions to check that files adhere to a layout style.
 #' A file should have a clear layout, it should
 #' \itemize{
-#'   \item mot have too many lines and
+#'   \item not have too many lines and
 #'   \item not have lines too wide.
 #' }
 #'
@@ -199,16 +198,16 @@ check_return <- function(object,
 #' condition of class c("cleanr", "error", "condition").
 #'
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param path Path to the file to be checked.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+#' but see \emph{Details}.
 #' @name file_checks
 #' @examples
-#' print(check_file_width(system.file("source", "R", "checks.R",
-#'                                     package = "cleanr")))
-#' print(check_file_length(system.file("source", "R", "checks.R",
-#'                                     package = "cleanr"),
-#'                                     max_file_length = 300))
+#' print(cleanr::check_file_width(system.file("source", "R", "checks.R",
+#'                                            package = "cleanr")))
+#' print(cleanr::check_file_length(system.file("source", "R", "checks.R",
+#'                                             package = "cleanr"),
+#'                                             max_file_length = 300))
 NULL
 
 #' @rdname file_checks

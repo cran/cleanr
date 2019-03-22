@@ -27,8 +27,4 @@ function deletes the TRUES.
 findings <- c("some signal caught", rep("TRUE", 3))
 cleanr:::tidy_findings(findings)
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
 \keyword{internal}
-

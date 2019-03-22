@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to cleanr"
 author: "Andreas Dominik Cullmann"
-date: 2017-01-05, 11:43:15
+date: 2019-03-13, 10:52:49
 bibliography: biblio.bib
 output: rmarkdown::html_vignette
 vignette: >
@@ -33,7 +33,7 @@ cleanr::set_cleanr_options(reset = TRUE)
 ```
 You can use *cleanr* to check the layout of a file:
 ```{r}
-path <- system.file("tests", "runit", "wrappers.r", package = "cleanr")
+path <- system.file("runit_tests", "wrappers.r", package = "cleanr")
 print(cleanr::check_file_layout(path))
 ```
 Okay, looks good. Let's make it look worse.  
@@ -126,7 +126,7 @@ print(suppressWarnings(cleanr::check_file(path)))
 ```
 
 ```{r}
-path <- system.file("tests", "runit", package = "cleanr")
+path <- system.file("runit_tests", package = "cleanr")
 print(suppressWarnings(cleanr::check_directory(path,
                                                check_return = FALSE)))
 ```

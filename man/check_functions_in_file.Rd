@@ -23,10 +23,6 @@ The functions catches the messages of "cleanr"-conditions
 if it caught any, \code{\link{throw}}s them.
 }
 \examples{
-print(check_functions_in_file(system.file("source", "R", "utils.R",
-                                    package = "cleanr")))
+print(cleanr:::check_functions_in_file(system.file("source", "R", "utils.R",
+                                                   package = "cleanr")))
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
-

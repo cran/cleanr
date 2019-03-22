@@ -18,12 +18,11 @@
 #' \pkg{codetools}
 #' (\url{https://cran.r-project.org/package=codetools}),
 #' \pkg{formatR}
-#' (\url{https://cran.r-project.org/package=formatR}).
+#' (\url{https://cran.r-project.org/package=formatR})
 #' and
 #' \pkg{lintr}
 #' (\url{https://cran.r-project.org/package=lintr}).
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @name cleanr-package
 #' @aliases cleanr-package
 #' @docType package

@@ -23,7 +23,7 @@ defaults?}
 options won't get overridden. Just ignore that argument.}
 }
 \value{
-invisible(TRUE)
+\code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}}.
 }
 \description{
 A convenience function for \code{\link{options}}.
@@ -38,23 +38,19 @@ or \code{FALSE}.
 }
 \examples{
 # R.C. Martin's Clean Code recommends monadic argument lists.
-set_cleanr_options(max_num_arguments = 1)
+cleanr::set_cleanr_options(max_num_arguments = 1)
 # R.C. Martin's Clean Code recommends functions less than 20 lines long.
-set_cleanr_options(max_lines = 30, max_lines_of_code = 20)
+cleanr::set_cleanr_options(max_lines = 30, max_lines_of_code = 20)
 # same as above:
-set_cleanr_options(list(max_lines = 30, max_lines_of_code = 20))
-get_cleanr_options(flatten_list = TRUE)
+cleanr::set_cleanr_options(list(max_lines = 30, max_lines_of_code = 20))
+cleanr::get_cleanr_options(flatten_list = TRUE)
 # we delete all options and set some anew
 options("cleanr" = NULL)
 options("cleanr" = list(max_lines = 30, max_lines_of_code = 20))
 # fill the missing options with the package's defaults:
-set_cleanr_options(overwrite = FALSE)
-get_cleanr_options(flatten_list = TRUE)
+cleanr::set_cleanr_options(overwrite = FALSE)
+cleanr::get_cleanr_options(flatten_list = TRUE)
 # reset to the package's defaults:
-set_cleanr_options(reset = TRUE)
-get_cleanr_options(flatten_list = TRUE)
+cleanr::set_cleanr_options(reset = TRUE)
+cleanr::get_cleanr_options(flatten_list = TRUE)
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
-

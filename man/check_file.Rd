@@ -26,10 +26,6 @@ and, if it
 caught any, \code{\link{throw}}s them.
 }
 \examples{
-print(check_file(system.file("source", "R", "utils.R",
+print(cleanr::check_file(system.file("source", "R", "utils.R",
                                      package = "cleanr")))
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
-

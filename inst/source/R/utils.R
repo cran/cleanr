@@ -6,7 +6,6 @@
 #' Pass an environment if you call the function elsewhere than from
 #' \code{\link{.GlobalEnv}}.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param object The object to be tested.
 #' @param null_is_false [boolean(1)]\cr Should NULL be treated as FALSE?
 #' @param ... Parameters passed to \code{\link{exists}}. See Details and
@@ -48,7 +47,6 @@ is_not_false <- function(object, null_is_false = TRUE, ...) {
 #' need to load the package \emph{and} be able to run all its internals in our
 #' environment.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param package [character(1)]\cr The name of the package as a string.
 #' @param ... Arguments passed to \code{\link{ls}}, all.names = TRUE could be a
 #' good idea.

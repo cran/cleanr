@@ -31,8 +31,4 @@ require(checkmate)
 cleanr:::get_function_body(set_cleanr_options)[3:6]
 utils::capture.output(body(set_cleanr_options))[4:6]
 }
-\author{
-Andreas Dominik Cullmann, <adc-r@arcor.de>
-}
 \keyword{internal}
-

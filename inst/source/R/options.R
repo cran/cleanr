@@ -8,7 +8,6 @@
 #' All checks (see \code{\link{function_checks}} and \code{\link{file_checks}})
 #' can be disabled by setting the corresponding option list item to \code{NULL}
 #' or \code{FALSE}.
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param overwrite [boolean(1)]\cr Overwrite options already set? Is set to
 #' \code{FALSE} on package loading to ensure your previously set \pkg{cleanr}
 #' options won't get overridden. Just ignore that argument.
@@ -21,25 +20,25 @@
 #' \Sexpr[results=verbatim]{cat(paste(names(cleanr::gco()), 
 #'                                    cleanr::gco(flatten_list = FALSE),
 #'                                    sep = "=", collapse = "\n"), "\n")}
-#' @return invisible(TRUE)
+#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}}.
 #' @export
 #' @examples
 #' # R.C. Martin's Clean Code recommends monadic argument lists.
-#' set_cleanr_options(max_num_arguments = 1)
+#' cleanr::set_cleanr_options(max_num_arguments = 1)
 #' # R.C. Martin's Clean Code recommends functions less than 20 lines long.
-#' set_cleanr_options(max_lines = 30, max_lines_of_code = 20)
+#' cleanr::set_cleanr_options(max_lines = 30, max_lines_of_code = 20)
 #' # same as above:
-#' set_cleanr_options(list(max_lines = 30, max_lines_of_code = 20))
-#' get_cleanr_options(flatten_list = TRUE)
+#' cleanr::set_cleanr_options(list(max_lines = 30, max_lines_of_code = 20))
+#' cleanr::get_cleanr_options(flatten_list = TRUE)
 #' # we delete all options and set some anew
 #' options("cleanr" = NULL)
 #' options("cleanr" = list(max_lines = 30, max_lines_of_code = 20))
 #' # fill the missing options with the package's defaults:
-#' set_cleanr_options(overwrite = FALSE)
-#' get_cleanr_options(flatten_list = TRUE)
+#' cleanr::set_cleanr_options(overwrite = FALSE)
+#' cleanr::get_cleanr_options(flatten_list = TRUE)
 #' # reset to the package's defaults:
-#' set_cleanr_options(reset = TRUE)
-#' get_cleanr_options(flatten_list = TRUE)
+#' cleanr::set_cleanr_options(reset = TRUE)
+#' cleanr::get_cleanr_options(flatten_list = TRUE)
 set_cleanr_options <- function(..., reset = FALSE, overwrite = TRUE) {
     checkmate::qassert(reset, "B1")
     checkmate::qassert(overwrite, "B1")
@@ -80,19 +79,18 @@ set_cleanr_options <- function(..., reset = FALSE, overwrite = TRUE) {
 #'
 #' A convenience function for \code{\link{getOption}}.
 #'
-#' @author Andreas Dominik Cullmann, <adc-r@@arcor.de>
 #' @param ... See \code{\link{getOption}}.
 #' @param remove_names [boolean(1)]\cr Remove the names?
 #' @param flatten_list [boolean(1)]\cr Return a vector?
 #' @return a (possibly named) list or a vector.
 #' @export
 #' @examples
-#' get_cleanr_options("max_lines")
-#' get_cleanr_options("max_lines", remove_names = TRUE)
-#' get_cleanr_options("max_lines", flatten_list = TRUE)
-#' get_cleanr_options("max_lines", flatten_list = TRUE, remove_names = TRUE)
-#' get_cleanr_options(flatten_list = TRUE, remove_names = TRUE)
-#' get_cleanr_options(c("max_lines", "max_lines_of_code"))
+#' cleanr::get_cleanr_options("max_lines")
+#' cleanr::get_cleanr_options("max_lines", remove_names = TRUE)
+#' cleanr::get_cleanr_options("max_lines", flatten_list = TRUE)
+#' cleanr::get_cleanr_options("max_lines", flatten_list = TRUE, remove_names = TRUE)
+#' cleanr::get_cleanr_options(flatten_list = TRUE, remove_names = TRUE)
+#' cleanr::get_cleanr_options(c("max_lines", "max_lines_of_code"))
 get_cleanr_options <- function(..., remove_names = FALSE, flatten_list = TRUE) {
     checkmate::qassert(remove_names, "B1")
     checkmate::qassert(flatten_list, "B1")
