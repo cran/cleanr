@@ -12,6 +12,7 @@
 #' Examples.
 #' @return TRUE if the object is set to something different than FALSE, FALSE
 #' otherwise.
+#' @keywords internal
 #' @export
 #' @examples
 #' a  <- 1
@@ -53,6 +54,7 @@ is_not_false <- function(object, null_is_false = TRUE, ...) {
 #' @seealso \code{\link[codetools:checkUsageEnv]{checkUsageEnv in codetools}}.
 #' @return invisible(TRUE)
 #' @export
+#' @keywords internal
 #' @examples
 #' load_internal_functions("cleanr")
 load_internal_functions <- function(package, ...) {

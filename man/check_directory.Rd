@@ -38,4 +38,12 @@ print(cleanr::check_directory(system.file("source", "R", package = "cleanr"),
 }
 \seealso{
 \code{\link{check_package}}.
+
+Other wrappers: 
+\code{\link{check_file_layout}()},
+\code{\link{check_file}()},
+\code{\link{check_function_layout}()},
+\code{\link{check_functions_in_file}()},
+\code{\link{check_package}()}
 }
+\concept{wrappers}

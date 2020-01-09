@@ -4,13 +4,16 @@
 \alias{check_function_layout}
 \title{Check a Function's Layout}
 \usage{
-check_function_layout(object, function_name = NULL,
+check_function_layout(
+  object,
+  function_name = NULL,
   max_lines_of_code = get_cleanr_options("max_lines_of_code"),
   max_lines = get_cleanr_options("max_lines"),
   max_num_arguments = get_cleanr_options("max_num_arguments"),
   max_nesting_depth = get_cleanr_options("max_nesting_depth"),
   max_line_width = get_cleanr_options("max_line_width"),
-  check_return = get_cleanr_options("check_return"))
+  check_return = get_cleanr_options("check_return")
+)
 }
 \arguments{
 \item{object}{The function to be checked.}
@@ -34,7 +37,8 @@ retrieved via \code{\link{get}} in the wrapper function
 \item{check_return}{See \code{\link{check_return}}.}
 }
 \value{
-invisible(TRUE), but see \emph{Details}.
+\code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+but see \emph{Details}.
 }
 \description{
 Run all \code{\link{function_checks}} on a function.
@@ -47,3 +51,12 @@ The functions catches the messages of "cleanr"-conditions
 \examples{
 print(cleanr::check_function_layout(cleanr::check_num_lines))
 }
+\seealso{
+Other wrappers: 
+\code{\link{check_directory}()},
+\code{\link{check_file_layout}()},
+\code{\link{check_file}()},
+\code{\link{check_functions_in_file}()},
+\code{\link{check_package}()}
+}
+\concept{wrappers}

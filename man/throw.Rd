@@ -13,12 +13,6 @@ throw(message_string, system_call = sys.call(-1), ...)
 
 \item{system_call}{The call to be thrown.}
 
-\item{...}{Arguments to be passed to \code{\link{structure}}.}
-
-\item{message_string}{The message to be thrown.}
-
-\item{system_call}{The call to be thrown.}
-
 \item{...}{Arguments to be passed to
 \code{\link[base:structure]{base::structure}}.}
 }

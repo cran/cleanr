@@ -1,4 +1,4 @@
-setMethod(f = "auc", signature(object = "bincap"),
+methods::setMethod(f = "auc", methods::signature(object = "bincap"),
           function(object) {
               n0 <- sum(object@response == object@true)
               n1 <- sum(object@response != object@true)

@@ -21,8 +21,9 @@ NULL
 #' @param max_nesting_depth See \code{\link{check_nesting_depth}}.
 #' @param max_line_width See \code{\link{check_line_width}}.
 #' @param check_return See \code{\link{check_return}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @export
+#' @family wrappers
 #' @examples
 #' print(cleanr::check_function_layout(cleanr::check_num_lines))
 check_function_layout <- function(object, function_name = NULL,
@@ -85,7 +86,8 @@ check_function_layout <- function(object, function_name = NULL,
 #' @param path Path to the file to be checked.
 #' @param max_file_length See \code{\link{check_file_length}}.
 #' @param max_file_width See \code{\link{check_file_width}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
+#' @family wrappers
 #' @export
 #' @examples
 #' print(cleanr::check_file_layout(system.file("source", "R", "checks.R",
@@ -121,7 +123,8 @@ check_file_layout <- function(path,
 #'
 #' @param path Path to the file to be checked.
 #' @param ... Arguments to be passed to \code{\link{check_function_layout}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
+#' @family wrappers
 #' @export
 #' @examples
 #' print(cleanr:::check_functions_in_file(system.file("source", "R", "utils.R",
@@ -163,7 +166,8 @@ check_functions_in_file <- function(path, ...) {
 #' @param path Path to the file to be checked.
 #' @param ... Arguments to be passed to \code{\link{check_functions_in_file}} or
 #' \code{\link{check_file_layout}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
+#' @family wrappers
 #' @export
 #' @examples
 #' print(cleanr::check_file(system.file("source", "R", "utils.R",
@@ -238,10 +242,10 @@ check_file <- function(path, ...) {
 #' @param recursive Search the directory recursively?
 #' See \code{\link{list.files}}.
 #' @param ... Arguments to be passed to \code{\link{check_file}}.
-#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
-#' but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @seealso \code{\link{check_package}}.
 #' @export
+#' @family wrappers
 #' @examples
 #' # load internal functions first.
 #' load_internal_functions("cleanr")
@@ -279,9 +283,9 @@ check_directory <- function(path, pattern = "\\.[rR]$", recursive = FALSE,
 #' @param path Path to the package to be checked.
 #' @param pattern A pattern to search files with, see \code{\link{list.files}}.
 #' @param ... Arguments to be passed to \code{\link{check_file}}.
-#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
-#' but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @export
+#' @family wrappers
 #' @examples
 #' # create a fake package first:
 #' package_path <- file.path(tempdir(), "fake")

@@ -36,3 +36,12 @@ file.copy(list.files(directory, full.names = TRUE), file.path(package_path,
                                                               "R"))
 RUnit::checkTrue(cleanr::check_package(package_path, check_return = FALSE))
 }
+\seealso{
+Other wrappers: 
+\code{\link{check_directory}()},
+\code{\link{check_file_layout}()},
+\code{\link{check_file}()},
+\code{\link{check_function_layout}()},
+\code{\link{check_functions_in_file}()}
+}
+\concept{wrappers}

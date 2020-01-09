@@ -4,9 +4,11 @@
 \alias{check_file_layout}
 \title{Check a File's Layout}
 \usage{
-check_file_layout(path,
+check_file_layout(
+  path,
   max_file_length = get_cleanr_options("max_file_length"),
-  max_file_width = get_cleanr_options("max_file_width"))
+  max_file_width = get_cleanr_options("max_file_width")
+)
 }
 \arguments{
 \item{path}{Path to the file to be checked.}
@@ -16,7 +18,8 @@ check_file_layout(path,
 \item{max_file_width}{See \code{\link{check_file_width}}.}
 }
 \value{
-invisible(TRUE), but see \emph{Details}.
+\code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+but see \emph{Details}.
 }
 \description{
 Run all \code{\link{file_checks}} on a file.
@@ -30,3 +33,12 @@ them.
 print(cleanr::check_file_layout(system.file("source", "R", "checks.R",
                                             package = "cleanr")))
 }
+\seealso{
+Other wrappers: 
+\code{\link{check_directory}()},
+\code{\link{check_file}()},
+\code{\link{check_function_layout}()},
+\code{\link{check_functions_in_file}()},
+\code{\link{check_package}()}
+}
+\concept{wrappers}

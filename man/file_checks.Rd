@@ -44,3 +44,8 @@ print(cleanr::check_file_length(system.file("source", "R", "checks.R",
                                             package = "cleanr"),
                                             max_file_length = 300))
 }
+\seealso{
+Other check functions: 
+\code{\link{function_checks}}
+}
+\concept{check functions}

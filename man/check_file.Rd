@@ -13,7 +13,8 @@ check_file(path, ...)
 \code{\link{check_file_layout}}.}
 }
 \value{
-invisible(TRUE), but see \emph{Details}.
+\code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+but see \emph{Details}.
 }
 \description{
 Run \code{\link{check_functions_in_file}} and
@@ -29,3 +30,12 @@ caught any, \code{\link{throw}}s them.
 print(cleanr::check_file(system.file("source", "R", "utils.R",
                                      package = "cleanr")))
 }
+\seealso{
+Other wrappers: 
+\code{\link{check_directory}()},
+\code{\link{check_file_layout}()},
+\code{\link{check_function_layout}()},
+\code{\link{check_functions_in_file}()},
+\code{\link{check_package}()}
+}
+\concept{wrappers}

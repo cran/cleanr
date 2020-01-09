@@ -31,8 +31,7 @@ NULL
 #' @param object The function to be checked.
 #' Should have been sourced with keep.source = TRUE (see
 #' \code{\link{get_function_body}}).
-#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
-#' but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @name function_checks
 #' @examples
 #' print(cleanr::check_num_arguments(cleanr::check_num_arguments))
@@ -52,6 +51,7 @@ NULL
 #' Set (preferably via \code{\link{set_cleanr_options}}) to \code{NULL} or
 #' \code{FALSE} to disable the check.
 #' @export
+#' @family check functions
 check_num_arguments <- function(object,
                                 max_num_arguments = gco("max_num_arguments")) {
     if (is_not_false(max_num_arguments, where = environment())) {
@@ -202,6 +202,7 @@ check_return <- function(object,
 #' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
 #' but see \emph{Details}.
 #' @name file_checks
+#' @family check functions
 #' @examples
 #' print(cleanr::check_file_width(system.file("source", "R", "checks.R",
 #'                                            package = "cleanr")))

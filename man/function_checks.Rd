@@ -16,8 +16,7 @@ check_nesting_depth(object, max_nesting_depth = gco("max_nesting_depth"))
 
 check_num_lines(object, max_lines = gco("max_lines"))
 
-check_num_lines_of_code(object,
-  max_lines_of_code = gco("max_lines_of_code"))
+check_num_lines_of_code(object, max_lines_of_code = gco("max_lines_of_code"))
 
 check_line_width(object, max_line_width = gco("max_line_width"))
 
@@ -92,3 +91,8 @@ print(cleanr::check_return(cleanr::check_return))
 print(cleanr::check_line_width(cleanr::check_line_width,
                                max_line_width = 90))
 }
+\seealso{
+Other check functions: 
+\code{\link{file_checks}}
+}
+\concept{check functions}

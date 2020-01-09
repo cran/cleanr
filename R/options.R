@@ -21,6 +21,7 @@
 #'                                    cleanr::gco(flatten_list = FALSE),
 #'                                    sep = "=", collapse = "\n"), "\n")}
 #' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}}.
+#' @family option wrappers
 #' @export
 #' @examples
 #' # R.C. Martin's Clean Code recommends monadic argument lists.
@@ -84,6 +85,7 @@ set_cleanr_options <- function(..., reset = FALSE, overwrite = TRUE) {
 #' @param flatten_list [boolean(1)]\cr Return a vector?
 #' @return a (possibly named) list or a vector.
 #' @export
+#' @family option wrappers
 #' @examples
 #' cleanr::get_cleanr_options("max_lines")
 #' cleanr::get_cleanr_options("max_lines", remove_names = TRUE)
@@ -108,5 +110,6 @@ get_cleanr_options <- function(..., remove_names = FALSE, flatten_list = TRUE) {
 
 #' @rdname get_cleanr_options
 #' @export
+#' @family option wrappers
 #' @note \code{gco} is just an alias for \code{get_cleanr_options}.
 gco <- get_cleanr_options

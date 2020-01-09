@@ -54,3 +54,8 @@ cleanr::get_cleanr_options(flatten_list = TRUE)
 cleanr::set_cleanr_options(reset = TRUE)
 cleanr::get_cleanr_options(flatten_list = TRUE)
 }
+\seealso{
+Other option wrappers: 
+\code{\link{get_cleanr_options}()}
+}
+\concept{option wrappers}

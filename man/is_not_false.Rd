@@ -37,3 +37,4 @@ f <- function() {
 }
 print(f())
 }
+\keyword{internal}

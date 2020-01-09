@@ -30,3 +30,4 @@ load_internal_functions("cleanr")
 \seealso{
 \code{\link[codetools:checkUsageEnv]{checkUsageEnv in codetools}}.
 }
+\keyword{internal}

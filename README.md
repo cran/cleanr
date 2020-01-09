@@ -14,10 +14,12 @@ Check your R code for some of the most common layout flaws.
 
 
 
-# cleanr
 ## Introduction
 Please read the
 [vignette](https://CRAN.R-project.org/package=cleanr/vignettes/cleanr_Introduction.html).
+<!-- 
+[vignette](https://fvafrCU.gitlab.io/cleanr/doc/An_Introduction_to_cleanr.html).
+-->
 
 Or, after installation, the help page:
 
@@ -59,6 +61,8 @@ help("cleanr-package", package = "cleanr")
 ```
 
 ## Installation
+
+You can install cleanr from gitlab via:
 
 
 ```r

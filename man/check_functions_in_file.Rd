@@ -12,7 +12,8 @@ check_functions_in_file(path, ...)
 \item{...}{Arguments to be passed to \code{\link{check_function_layout}}.}
 }
 \value{
-invisible(TRUE), but see \emph{Details}.
+\code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
+but see \emph{Details}.
 }
 \description{
 Run \code{\link{check_function_layout}} on all functions defined in a file.
@@ -26,3 +27,12 @@ if it caught any, \code{\link{throw}}s them.
 print(cleanr:::check_functions_in_file(system.file("source", "R", "utils.R",
                                                    package = "cleanr")))
 }
+\seealso{
+Other wrappers: 
+\code{\link{check_directory}()},
+\code{\link{check_file_layout}()},
+\code{\link{check_file}()},
+\code{\link{check_function_layout}()},
+\code{\link{check_package}()}
+}
+\concept{wrappers}
