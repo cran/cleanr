@@ -1,7 +1,7 @@
-1872deebd9a634311c1ee506706c2ff8 *DESCRIPTION
-61e87a2b25355b0ebb6d10e8c00614cb *LICENSE
+a4ab8ff97cad6a55139edf2b7176a614 *DESCRIPTION
+add5ceb7eb6a6127f116a7ae45078416 *LICENSE
 12baca218289829286683dcaafb17bb4 *NAMESPACE
-1d1adc2343ea8bd8962b22781a668cbc *NEWS.md
+53b32c4759b9d0d9fb4815ff0bebfb96 *NEWS.md
 888ea77dc7e20e6fe6656090ba71ba34 *R/checks.R
 8092d88ebbccdaf272e479c374c2b006 *R/cleanr-package.R
 bba37e04c4ea030cbd721ff0592f584b *R/internals.R
@@ -11,13 +11,13 @@ d97d0acd1acea1252504e244886b450e *R/utils.R
 35426044b45da88ec49885c0d59f8141 *R/wrappers.R
 e52c855d60914dc0c03584590cad5213 *R/zzz.R
 c3de94f77f37d7ceea0afabb2079c1e9 *README.md
-ebefcce9bf42f9097c572825c277e23d *build/cleanr.pdf
-b79aedc4c93f57dd81aaf2e9e3433eae *build/vignette.rds
+6205a8e5f76c1e8fcf9ec2b34dc83939 *build/cleanr.pdf
+7de48acbfdea3c0c5cea297d82b12a9a *build/vignette.rds
 24c2e40c6064d24b423f3e2d0f2cb0e8 *demo/00Index
 317c22338905c20ee432650921306cfe *demo/cleanr.R
-ac46705450bd4dfef2b31dfda0a94464 *inst/doc/cleanr_Introduction.R
-720b9ce20d5d540d935ca57402b65511 *inst/doc/cleanr_Introduction.Rmd
-8a2b291fe4c5a4e7f912c43b1dcf4da4 *inst/doc/cleanr_Introduction.html
+9233b348ac8d26de2c73aa786f432e2c *inst/doc/cleanr_Introduction.R
+b6b8237058c4851d248fabfe11ba52e5 *inst/doc/cleanr_Introduction.Rasciidoc
+04096bd588630838cb205062b51571bc *inst/doc/cleanr_Introduction.html
 4d7bd2e5a84d194658fc2b5103e6e2a3 *inst/runit_tests/runit_checks.R
 ea790f7afc589305dc88bdc186b9d590 *inst/runit_tests/runit_internals.R
 ce3f63ffb8ffc56e48ef857601506eca *inst/runit_tests/runit_options.R
@@ -59,4 +59,4 @@ c4682e6762b6459a611d173cec4717f2 *tests/runit.R
 7a12192e4759b092835220baaacf57b6 *tests/testthat.R
 ff22065126a2d251b921a4ed4534b3e3 *tests/testthat/test-throw.R
 1a85617ed426a0450cb66a9712664c51 *vignettes/biblio.bib
-720b9ce20d5d540d935ca57402b65511 *vignettes/cleanr_Introduction.Rmd
+b6b8237058c4851d248fabfe11ba52e5 *vignettes/cleanr_Introduction.Rasciidoc

@@ -1,101 +1,100 @@
----
-title: "An Introduction to cleanr"
-author: "Andreas Dominik Cullmann"
-date: 2020-01-09, 12:03:36
-bibliography: biblio.bib
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{An Introduction to cleanr}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-# The Intro to the Intro
+= An Introduction to cleanr
+:Author: Andreas Dominik Cullmann
+:Date: 2020-01-09, 12:03:36
+:toc2:
+
+////
+    %\VignetteIndexEntry{An Introduction to cleanr}
+    %\VignetteEngine{rasciidoc::rasciidoc}
+    %\VignetteEncoding{UTF-8}
+////
+== The Intro to the Intro
 Coding is an art, but most of the code we write is more or less dreadful.
 Many tried to teach us how to write code less dreadful, be it implicitly as
-@KR did,
+<<KR>> did,
 be it explicitly as
-@cc
+<<CC>>
 did.
 
 If you are concerned about your coding style, you will probably want to lint 
-your codes with [lintr]( https://CRAN.R-project.org/package=lintr) or even 
-reformat it using [formatR](https://CRAN.R-project.org/package=formatR) or
- [styler](https://CRAN.R-project.org/package=styler) 
+your codes with  https://CRAN.R-project.org/package=lintr[lintr] or even 
+reformat it using https://CRAN.R-project.org/package=formatR[formatR] or
+ https://CRAN.R-project.org/package=styler[styler] 
 (the latter gives better results in my opinion).
 
-This package tries to help you with your code`s layout:
+This package tries to help you with your code's layout:
 it checks our code for files too long or wide, functions with too
 many lines, too wide lines, too many arguments or too many levels of nesting.
 Note that it's *not* a static code analyser like 
-[lintr]( https://CRAN.R-project.org/package=lintr).
+ https://CRAN.R-project.org/package=lintr[lintr].
 
-# A first example
-```{r, echo = FALSE}
+== A first example
+//begin.rcode, echo = FALSE
 cleanr::set_cleanr_options(reset = TRUE)
-```
+//end.rcode
 You can use *cleanr* to check the layout of a file:
-```{r}
+//begin.rcode
 path <- system.file("runit_tests", "runit_wrappers.R", package = "cleanr")
 print(cleanr::check_file_layout(path))
-```
+//end.rcode
 Okay, looks good. Let's make it look worse.  
 
-# Options
+== Options
 *cleanr* is controlled by a list of options named "cleanr". You can retrieve 
-it either via ```options("cleanr")``` or via a convenience function:
-```{r}
+it either via +options("cleanr")+ or via a convenience function:
+//begin.rcode
 cleanr::get_cleanr_options(flatten_list = FALSE)
-```
+//end.rcode
 
-## Arguments to Check Functions
+=== Arguments to Check Functions
 You can change any of those options on the fly (leaving the options set 
                                                 untouched). 
 The real life
-```{r, eval = FALSE}
+//begin.rcode, eval = FALSE
 cleanr::check_file_layout(path, max_file_width = 79)
-```
+//end.rcode
 produces conditions that would stop this vignette from getting compiled, this is
 why we here assert these conditions:
 
-```{r}
+//begin.rcode
 print(tools::assertCondition(cleanr::check_file_layout(path, 
                                                      max_file_width = 79), 
                              c("cleanr", "error",  "condition"))
 )
-```
-## Setting Options
+//end.rcode
+=== Setting Options
 You can set options using the convenience function:
-```{r}
+//begin.rcode
 cleanr::set_cleanr_options(max_file_width = 75, 
                            max_file_length = 20)
-```
-```{r}
+//end.rcode
+//begin.rcode
 print(tools::assertCondition(cleanr::check_file_layout(path), 
                              c("cleanr", "error",  "condition"))
 )
-```
+//end.rcode
 
-# Checking for File Layout
+== Checking for File Layout
 Files too long or too wide are hard to read.
 You can check for a file's layout, i.e. for its lines' width and for the number 
 of its lines.
 You have already seen how to check for file layout:
-```{r}
+//begin.rcode
 cleanr::set_cleanr_options(reset = TRUE)
 path <- system.file("source", "R", "checks.R", package = "cleanr")
 print(cleanr::check_file_layout(path)) 
-```
+//end.rcode
 
 We override some option by argument:
-```{r}
+//begin.rcode
 print(tools::assertCondition(cleanr::check_file_layout(path, 
                                                        max_file_length = 100), 
                              c("cleanr", "error",  "condition"))
 )
-```
+//end.rcode
 
 
-# Checking for Function Layout
+== Checking for Function Layout
 Functions should
 
  - not have too many arguments,
@@ -106,46 +105,46 @@ Functions should
  - explicitly return an object.
 
 You can check all functions defined in a file:
-```{r}
+//begin.rcode
 print(suppressWarnings(cleanr::check_functions_in_file(path)))
-```
+//end.rcode
 And again we override some option by argument:
 
-```{r}
+//begin.rcode
 print(tools::assertCondition(suppressWarnings(cleanr::check_functions_in_file(path,
                                                                         max_num_arguments = 1)), 
                        c("cleanr", "error",  "condition"))
 )
-```
+//end.rcode
 
-# Checking for File and Function Layout 
+== Checking for File and Function Layout 
 *cleanr* comes with wrappers to check for file and function layout in one go:
-`check_file` runs the file and function layout checks on a file,
-`check_directory` runs them on all files (matching a given pattern) in a 
++check_file+ runs the file and function layout checks on a file,
++check_directory+ runs them on all files (matching a given pattern) in a 
 directory and 
-`check_package` runs them on a package source 
++check_package+ runs them on a package source 
 (you may find it helpful when developing a package).
-```{r}
+//begin.rcode
 print(suppressWarnings(cleanr::check_file(path)))
-```
+//end.rcode
 
-```{r}
+//begin.rcode
 path <- system.file("runit_tests", package = "cleanr")
 print(suppressWarnings(cleanr::check_directory(path,
                                                check_return = FALSE)))
-```
+//end.rcode
 To run *cleanr* on its own codes, we need to load its internal functions first:
-```{r}
+//begin.rcode
 path <- system.file("source", "R", package = "cleanr")
 cleanr::load_internal_functions("cleanr")
 print(tools::assertCondition(suppressWarnings(cleanr::check_directory(path)), 
                        c("cleanr", "error",  "condition"))
 )
-```
-# Disabling checks
-To disable any check, set the corresponding option or argument to ```NULL``` or 
-```FALSE```. 
-```{r}
+//end.rcode
+== Disabling checks
+To disable any check, set the corresponding option or argument to +NULL+ or 
++FALSE+. 
+//begin.rcode
 cleanr::set_cleanr_options(reset = TRUE)
 cleanr::load_internal_functions("cleanr")
 path <- system.file("source", "R", "wrappers.R", package = "cleanr")
@@ -159,25 +158,35 @@ print(r)
 r <- cleanr::check_functions_in_file(path, check_return = FALSE, 
                                      max_num_arguments = FALSE)
 print(r)
-```
+//end.rcode
 
 
 
 To completely disable all checks use:
-```{r}
+//begin.rcode
 co <- get_cleanr_options(flatten_list = FALSE)
 co <- lapply(co, function(x) x == FALSE)
 options("cleanr" = list(cleanr = co))
 get_cleanr_options() 
-```
-Now run on any directory, ```check_directory``` will always return ```TRUE```:
-```{r}
+//end.rcode
+Now run on any directory, +check_directory+ will always return +TRUE+:
+//begin.rcode
 path <- system.file("source", "R", package = "cleanr")
 cleanr::load_internal_functions("cleanr")
 print(cleanr::check_directory(path)) 
-```
+//end.rcode
 
 
 
 
-# References
+[bibliography]
+== References
+- [[[KR]]] B. W. Kernighan and D. M. Ritchie. 
+   The C Programming Language, Second Edition.
+   Prentice-Hall, Englewood Cliffs, New Jersey.
+   1988.
+
+- [[[CC]]] R.C. Martin.
+  Clean Code: A Handbook of Agile Software Craftsmanship.
+  Pearson Education.
+  2008.
