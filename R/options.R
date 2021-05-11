@@ -2,7 +2,7 @@
 #'
 #' A convenience function for \code{\link{options}}.
 #'
-#' \pkg{cleanr} loads a couple of options as defaults for its 
+#' \pkg{cleanr} loads a couple of options as defaults for its
 #' functions.
 #' The defaults are stored in a list element of \code{\link{options}}.
 #' All checks (see \code{\link{function_checks}} and \code{\link{file_checks}})
@@ -17,7 +17,7 @@
 #' \code{\link{file_checks}} for options to be set with \pkg{cleanr}.
 #' Use \code{\link{get_cleanr_options}} to get the current values.
 #' \pkg{cleanr}'s standard defaults are:
-#' \Sexpr[results=verbatim]{cat(paste(names(cleanr::gco()), 
+#' \Sexpr[results=verbatim]{cat(paste(names(cleanr::gco()),
 #'                                    cleanr::gco(flatten_list = FALSE),
 #'                                    sep = "=", collapse = "\n"), "\n")}
 #' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}}.
@@ -90,7 +90,8 @@ set_cleanr_options <- function(..., reset = FALSE, overwrite = TRUE) {
 #' cleanr::get_cleanr_options("max_lines")
 #' cleanr::get_cleanr_options("max_lines", remove_names = TRUE)
 #' cleanr::get_cleanr_options("max_lines", flatten_list = TRUE)
-#' cleanr::get_cleanr_options("max_lines", flatten_list = TRUE, remove_names = TRUE)
+#' cleanr::get_cleanr_options("max_lines", flatten_list = TRUE,
+#'                            remove_names = TRUE)
 #' cleanr::get_cleanr_options(flatten_list = TRUE, remove_names = TRUE)
 #' cleanr::get_cleanr_options(c("max_lines", "max_lines_of_code"))
 get_cleanr_options <- function(..., remove_names = FALSE, flatten_list = TRUE) {

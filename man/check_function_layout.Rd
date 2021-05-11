@@ -19,7 +19,7 @@ check_function_layout(
 \item{object}{The function to be checked.}
 
 \item{function_name}{The name to be used for reporting. Stick with the
-default: If NULL, it is taken from the \code{object} given. 
+default: If NULL, it is taken from the \code{object} given.
 Argument is used internally to pass function names
 retrieved via \code{\link{get}} in the wrapper function
 \code{\link{check_functions_in_file}}.}

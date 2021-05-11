@@ -31,8 +31,7 @@ NULL
 #' @param object The function to be checked.
 #' Should have been sourced with keep.source = TRUE (see
 #' \code{\link{get_function_body}}).
-#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
-#' but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @name function_checks
 #' @examples
 #' print(cleanr::check_num_arguments(cleanr::check_num_arguments))
@@ -48,10 +47,11 @@ NULL
 
 
 #' @rdname function_checks
-#' @param max_num_arguments The maximum number of arguments accepted. 
+#' @param max_num_arguments The maximum number of arguments accepted.
 #' Set (preferably via \code{\link{set_cleanr_options}}) to \code{NULL} or
 #' \code{FALSE} to disable the check.
 #' @export
+#' @family check functions
 check_num_arguments <- function(object,
                                 max_num_arguments = gco("max_num_arguments")) {
     if (is_not_false(max_num_arguments, where = environment())) {
@@ -77,7 +77,7 @@ check_nesting_depth <- function(object,
         checkmate::qassert(max_nesting_depth, "N1")
         function_body <- get_function_body(object)
         # break if no braces in function
-        if (! any (grepl("}", function_body, fixed = TRUE)))
+        if (!any(grepl("}", function_body, fixed = TRUE)))
             return(invisible(TRUE))
         braces <- paste(gsub("\\", "",
                              gsub("[^\\{\\}]", "", function_body),
@@ -162,7 +162,7 @@ check_line_width <- function(object,
 }
 
 #' @rdname function_checks
-#' @param check_return 
+#' @param check_return
 #' Set (preferably via \code{\link{set_cleanr_options}}) to \code{NULL} or
 #' \code{FALSE} to disable the check.
 #' @export
@@ -202,6 +202,7 @@ check_return <- function(object,
 #' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
 #' but see \emph{Details}.
 #' @name file_checks
+#' @family check functions
 #' @examples
 #' print(cleanr::check_file_width(system.file("source", "R", "checks.R",
 #'                                            package = "cleanr")))

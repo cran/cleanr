@@ -29,7 +29,8 @@ A convenience function for \code{\link{getOption}}.
 cleanr::get_cleanr_options("max_lines")
 cleanr::get_cleanr_options("max_lines", remove_names = TRUE)
 cleanr::get_cleanr_options("max_lines", flatten_list = TRUE)
-cleanr::get_cleanr_options("max_lines", flatten_list = TRUE, remove_names = TRUE)
+cleanr::get_cleanr_options("max_lines", flatten_list = TRUE,
+                           remove_names = TRUE)
 cleanr::get_cleanr_options(flatten_list = TRUE, remove_names = TRUE)
 cleanr::get_cleanr_options(c("max_lines", "max_lines_of_code"))
 }

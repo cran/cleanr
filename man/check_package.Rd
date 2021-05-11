@@ -31,7 +31,7 @@ package_path <- file.path(tempdir(), "fake")
 usethis::create_package(package_path, fields = NULL,
                         rstudio = FALSE, open = FALSE)
 directory <- system.file("runit_tests", "source", "R_s4",
-                         package = "cleanr") 
+                         package = "cleanr")
 file.copy(list.files(directory, full.names = TRUE), file.path(package_path,
                                                               "R"))
 RUnit::checkTrue(cleanr::check_package(package_path, check_return = FALSE))

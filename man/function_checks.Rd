@@ -27,7 +27,7 @@ check_return(object, check_return = gco("check_return"))
 Should have been sourced with keep.source = TRUE (see
 \code{\link{get_function_body}}).}
 
-\item{max_num_arguments}{The maximum number of arguments accepted. 
+\item{max_num_arguments}{The maximum number of arguments accepted.
 Set (preferably via \code{\link{set_cleanr_options}}) to \code{NULL} or
 \code{FALSE} to disable the check.}
 

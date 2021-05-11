@@ -1,3 +1,7 @@
+# cleanr 1.3.2
+
+* Now importing package `fritools`.
+
 # cleanr 1.3.1
 
 * Using a rasciidoc vignette now.

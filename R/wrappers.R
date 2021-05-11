@@ -11,7 +11,7 @@ NULL
 #'
 #' @param object The function to be checked.
 #' @param function_name The name to be used for reporting. Stick with the
-#' default: If NULL, it is taken from the \code{object} given. 
+#' default: If NULL, it is taken from the \code{object} given.
 #' Argument is used internally to pass function names
 #' retrieved via \code{\link{get}} in the wrapper function
 #' \code{\link{check_functions_in_file}}.
@@ -214,7 +214,7 @@ check_file <- function(path, ...) {
     finding <- tryCatch(do.call("check_functions_in_file", arguments_to_use),
                         cleanr = function(e) return(e[["message"]]),
                         error = function(e) return(e))
-    if (inherits(finding, "error") && !inherits(finding, "cleanr") ) {
+    if (inherits(finding, "error") && !inherits(finding, "cleanr")) {
         finding[["message"]] <- paste0(finding[["message"]],
                                        ". Probably due to failed ",
                                        "S4 method loading.")
@@ -292,7 +292,7 @@ check_directory <- function(path, pattern = "\\.[rR]$", recursive = FALSE,
 #' usethis::create_package(package_path, fields = NULL,
 #'                         rstudio = FALSE, open = FALSE)
 #' directory <- system.file("runit_tests", "source", "R_s4",
-#'                          package = "cleanr") 
+#'                          package = "cleanr")
 #' file.copy(list.files(directory, full.names = TRUE), file.path(package_path,
 #'                                                               "R"))
 #' RUnit::checkTrue(cleanr::check_package(package_path, check_return = FALSE))

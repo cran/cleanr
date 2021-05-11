@@ -30,14 +30,14 @@ get_function_body <- function(object) {
     # remove the byte code
     lines_in_function <- lines_in_function[! grepl("<bytecode:\\.*",
                                                    lines_in_function)]
-    if (! any(grepl("{", lines_in_function, fixed = TRUE))){
+    if (!any(grepl("{", lines_in_function, fixed = TRUE))) {
         # treat oneliners
         is_split_onliner <- length(lines_in_function) > 1
         opening_line_num <- 1  + as.numeric(is_split_onliner)
         closing_line_num  <- length(lines_in_function)
     } else {
-        opening_line_num <- min(grep("{", lines_in_function, fixed = TRUE ))
-        closing_line_num <- max(grep("}", lines_in_function, fixed = TRUE ))
+        opening_line_num <- min(grep("{", lines_in_function, fixed = TRUE))
+        closing_line_num <- max(grep("}", lines_in_function, fixed = TRUE))
     }
     opening_brace_ends_line <-
         grepl("\\{\\s*$", lines_in_function[opening_line_num])

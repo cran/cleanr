@@ -47,7 +47,7 @@ NULL
 
 
 #' @rdname function_checks
-#' @param max_num_arguments The maximum number of arguments accepted. 
+#' @param max_num_arguments The maximum number of arguments accepted.
 #' Set (preferably via \code{\link{set_cleanr_options}}) to \code{NULL} or
 #' \code{FALSE} to disable the check.
 #' @export
@@ -77,7 +77,7 @@ check_nesting_depth <- function(object,
         checkmate::qassert(max_nesting_depth, "N1")
         function_body <- get_function_body(object)
         # break if no braces in function
-        if (! any (grepl("}", function_body, fixed = TRUE)))
+        if (!any(grepl("}", function_body, fixed = TRUE)))
             return(invisible(TRUE))
         braces <- paste(gsub("\\", "",
                              gsub("[^\\{\\}]", "", function_body),
@@ -162,7 +162,7 @@ check_line_width <- function(object,
 }
 
 #' @rdname function_checks
-#' @param check_return 
+#' @param check_return
 #' Set (preferably via \code{\link{set_cleanr_options}}) to \code{NULL} or
 #' \code{FALSE} to disable the check.
 #' @export

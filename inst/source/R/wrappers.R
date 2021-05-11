@@ -11,7 +11,7 @@ NULL
 #'
 #' @param object The function to be checked.
 #' @param function_name The name to be used for reporting. Stick with the
-#' default: If NULL, it is taken from the \code{object} given. 
+#' default: If NULL, it is taken from the \code{object} given.
 #' Argument is used internally to pass function names
 #' retrieved via \code{\link{get}} in the wrapper function
 #' \code{\link{check_functions_in_file}}.
@@ -21,8 +21,9 @@ NULL
 #' @param max_nesting_depth See \code{\link{check_nesting_depth}}.
 #' @param max_line_width See \code{\link{check_line_width}}.
 #' @param check_return See \code{\link{check_return}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @export
+#' @family wrappers
 #' @examples
 #' print(cleanr::check_function_layout(cleanr::check_num_lines))
 check_function_layout <- function(object, function_name = NULL,
@@ -85,7 +86,8 @@ check_function_layout <- function(object, function_name = NULL,
 #' @param path Path to the file to be checked.
 #' @param max_file_length See \code{\link{check_file_length}}.
 #' @param max_file_width See \code{\link{check_file_width}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
+#' @family wrappers
 #' @export
 #' @examples
 #' print(cleanr::check_file_layout(system.file("source", "R", "checks.R",
@@ -121,7 +123,8 @@ check_file_layout <- function(path,
 #'
 #' @param path Path to the file to be checked.
 #' @param ... Arguments to be passed to \code{\link{check_function_layout}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
+#' @family wrappers
 #' @export
 #' @examples
 #' print(cleanr:::check_functions_in_file(system.file("source", "R", "utils.R",
@@ -163,7 +166,8 @@ check_functions_in_file <- function(path, ...) {
 #' @param path Path to the file to be checked.
 #' @param ... Arguments to be passed to \code{\link{check_functions_in_file}} or
 #' \code{\link{check_file_layout}}.
-#' @return invisible(TRUE), but see \emph{Details}.
+#' @template return_invisibly_true_see_details
+#' @family wrappers
 #' @export
 #' @examples
 #' print(cleanr::check_file(system.file("source", "R", "utils.R",
@@ -210,7 +214,7 @@ check_file <- function(path, ...) {
     finding <- tryCatch(do.call("check_functions_in_file", arguments_to_use),
                         cleanr = function(e) return(e[["message"]]),
                         error = function(e) return(e))
-    if (inherits(finding, "error") && !inherits(finding, "cleanr") ) {
+    if (inherits(finding, "error") && !inherits(finding, "cleanr")) {
         finding[["message"]] <- paste0(finding[["message"]],
                                        ". Probably due to failed ",
                                        "S4 method loading.")
@@ -238,10 +242,10 @@ check_file <- function(path, ...) {
 #' @param recursive Search the directory recursively?
 #' See \code{\link{list.files}}.
 #' @param ... Arguments to be passed to \code{\link{check_file}}.
-#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
-#' but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @seealso \code{\link{check_package}}.
 #' @export
+#' @family wrappers
 #' @examples
 #' # load internal functions first.
 #' load_internal_functions("cleanr")
@@ -279,16 +283,16 @@ check_directory <- function(path, pattern = "\\.[rR]$", recursive = FALSE,
 #' @param path Path to the package to be checked.
 #' @param pattern A pattern to search files with, see \code{\link{list.files}}.
 #' @param ... Arguments to be passed to \code{\link{check_file}}.
-#' @return \code{\link[base:invisible]{Invisibly}} \code{\link{TRUE}},
-#' but see \emph{Details}.
+#' @template return_invisibly_true_see_details
 #' @export
+#' @family wrappers
 #' @examples
 #' # create a fake package first:
 #' package_path <- file.path(tempdir(), "fake")
 #' usethis::create_package(package_path, fields = NULL,
 #'                         rstudio = FALSE, open = FALSE)
 #' directory <- system.file("runit_tests", "source", "R_s4",
-#'                          package = "cleanr") 
+#'                          package = "cleanr")
 #' file.copy(list.files(directory, full.names = TRUE), file.path(package_path,
 #'                                                               "R"))
 #' RUnit::checkTrue(cleanr::check_package(package_path, check_return = FALSE))
