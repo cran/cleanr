@@ -54,7 +54,7 @@ NULL
 #' @family check functions
 check_num_arguments <- function(object,
                                 max_num_arguments = gco("max_num_arguments")) {
-    if (is_not_false(max_num_arguments, where = environment())) {
+    if (fritools::is_not_false(max_num_arguments, where = environment())) {
         checkmate::checkFunction(object)
         checkmate::qassert(max_num_arguments, "N1")
         num_arguments <- length(formals(object))
@@ -72,7 +72,7 @@ check_num_arguments <- function(object,
 #' @export
 check_nesting_depth <- function(object,
                                 max_nesting_depth = gco("max_nesting_depth")) {
-    if (is_not_false(max_nesting_depth, where = environment())) {
+    if (fritools::is_not_false(max_nesting_depth, where = environment())) {
         checkmate::checkFunction(object)
         checkmate::qassert(max_nesting_depth, "N1")
         function_body <- get_function_body(object)
@@ -101,7 +101,7 @@ check_nesting_depth <- function(object,
 
 #' @export
 check_num_lines <- function(object, max_lines = gco("max_lines")) {
-    if (is_not_false(max_lines, where = environment())) {
+    if (fritools::is_not_false(max_lines, where = environment())) {
         checkmate::checkFunction(object)
         checkmate::qassert(max_lines, "N1")
         function_body <- get_function_body(object)
@@ -120,7 +120,7 @@ check_num_lines <- function(object, max_lines = gco("max_lines")) {
 check_num_lines_of_code <- function(object,
                                     max_lines_of_code =
                                         gco("max_lines_of_code")) {
-    if (is_not_false(max_lines_of_code, where = environment())) {
+    if (fritools::is_not_false(max_lines_of_code, where = environment())) {
         checkmate::checkFunction(object)
         checkmate::qassert(max_lines_of_code, "N1")
         function_body <- get_function_body(object)
@@ -143,7 +143,7 @@ check_num_lines_of_code <- function(object,
 #' @export
 check_line_width <- function(object,
                              max_line_width = gco("max_line_width")) {
-    if (is_not_false(max_line_width, where = environment())) {
+    if (fritools::is_not_false(max_line_width, where = environment())) {
         checkmate::checkFunction(object)
         checkmate::qassert(max_line_width, "N1")
         function_body <- get_function_body(object)
@@ -168,7 +168,7 @@ check_line_width <- function(object,
 #' @export
 check_return <- function(object,
                          check_return = gco("check_return")) {
-    if (is_not_false(check_return, where = environment())) {
+    if (fritools::is_not_false(check_return, where = environment())) {
         checkmate::checkFunction(object)
         message_string <- paste("Just checking for a line starting with a ",
                                 "return statement.\n",
@@ -218,7 +218,7 @@ NULL
 #' @export
 check_file_width <- function(path,
                              max_file_width = gco("max_file_width")) {
-    if (is_not_false(max_file_width, where = environment())) {
+    if (fritools::is_not_false(max_file_width, where = environment())) {
         checkmate::qassert(path, "S1")
         checkmate::qassert(max_file_width, "N1")
         file_content <- readLines(path)
@@ -243,7 +243,7 @@ check_file_width <- function(path,
 #' @export
 check_file_length <- function(path,
                               max_file_length = gco("max_file_length")) {
-    if (is_not_false(max_file_length, where = environment())) {
+    if (fritools::is_not_false(max_file_length, where = environment())) {
         checkmate::qassert(path, "S1")
         checkmate::qassert(max_file_length, "N1")
         file_content <- readLines(path)

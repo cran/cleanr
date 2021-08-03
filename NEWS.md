@@ -1,3 +1,8 @@
+# cleanr 1.3.3
+
+* Now explicitly importing from `fritools` as some flavours of CRAN don't seem 
+  to recognize `a <- fritools::a` as an import.
+
 # cleanr 1.3.2
 
 * Now importing package `fritools`.
