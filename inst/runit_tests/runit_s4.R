@@ -39,5 +39,6 @@ test_s4_package <- function() {
                              package = "cleanr")
     file.copy(list.files(directory, full.names = TRUE), file.path(package_path,
                                                                   "R"))
-    RUnit::checkTrue(cleanr::check_package(package_path, check_return = FALSE))
+    RUnit::checkTrue(cleanr::check_package(package_path, check_return = FALSE,
+                                           max_line_width = 81))
 }

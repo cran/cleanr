@@ -1,3 +1,8 @@
+# cleanr 1.3.4
+
+* Added a linebreak in `inst/runit_tests/source/R_s4/AllGenerics.R`, which
+  mysteriously has line width greater than 80 in tests on CRAN.
+
 # cleanr 1.3.3
 
 * Now explicitly importing from `fritools` as some flavours of CRAN don't seem 

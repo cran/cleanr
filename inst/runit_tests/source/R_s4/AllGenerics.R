@@ -1,1 +1,2 @@
-methods::setGeneric(name = "auc", def = function(object) standardGeneric("auc"))
+methods::setGeneric(name = "auc",
+                    def = function(object) standardGeneric("auc"))
