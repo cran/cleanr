@@ -1,3 +1,7 @@
+# cleanr 1.3.5
+
+* Fixed broken internal documentation in `get_function_body.Rd`.
+
 # cleanr 1.3.4
 
 * Added a linebreak in `inst/runit_tests/source/R_s4/AllGenerics.R`, which

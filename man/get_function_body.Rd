@@ -11,7 +11,7 @@ get_function_body(object)
 been sourced with keep.source = TRUE.}
 }
 \value{
-[character(n)]\cr the function body's lines.
+\code{character(n)} the function body's lines.
 }
 \description{
 \code{\link{body}} reformats the code (see \emph{Examples} and

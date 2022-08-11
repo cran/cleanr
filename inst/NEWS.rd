@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 1.3.5}{
+\itemize{
+\item Fixed broken internal documentation in \code{get_function_body.Rd}.
+}
+}
+
 \section{Changes in version 1.3.4}{
 \itemize{
 \item Added a linebreak in \code{inst/runit_tests/source/R_s4/AllGenerics.R}, which

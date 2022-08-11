@@ -12,7 +12,7 @@
 #'
 #' @param object The function from which to extract the body. \cr Should have
 #' been sourced with keep.source = TRUE.
-#' @return [character(n)]\cr the function body's lines.
+#' @return \code{character(n)} the function body's lines.
 #' @keywords internal
 #' @examples
 #' source(system.file("source", "R", "utils.R", package = "cleanr"))

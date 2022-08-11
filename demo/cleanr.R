@@ -14,4 +14,3 @@ set_cleanr_options(max_file_width = get_cleanr_options("max_file_width") - 1)
 message("Catch cleanr conditions:")
 print(tryCatch(suppressWarnings(check_file(file_name)),
                cleanr = function(e) return(e)))
-

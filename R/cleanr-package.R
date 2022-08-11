@@ -12,8 +12,7 @@
 #' many lines, too wide lines, too many arguments or too many levels of nesting.
 #' @note This is not a static code analyzer like pylint or the like. If you're
 #' looking for a static code analyzer, check out lintr
-#' (\url{https://cran.r-project.org/package=lintr} or
-#' \url{https://github.com/jimhester/lintr}).
+#' (\url{https://cran.r-project.org/package=lintr}).
 #' @seealso Packages
 #' \pkg{codetools}
 #' (\url{https://cran.r-project.org/package=codetools}),
