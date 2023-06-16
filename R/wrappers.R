@@ -127,8 +127,8 @@ check_file_layout <- function(path,
 #' @family wrappers
 #' @export
 #' @examples
-#' print(cleanr:::check_functions_in_file(system.file("source", "R", "utils.R",
-#'                                                    package = "cleanr")))
+#' print(cleanr::check_functions_in_file(system.file("source", "R", "utils.R",
+#'                                                   package = "cleanr")))
 check_functions_in_file <- function(path, ...) {
     checkmate::assertFile(path, access = "r")
     findings <- NULL

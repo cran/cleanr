@@ -1,6 +1,14 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 1.4.0}{
+\itemize{
+\item Omitted examples in documentation of unexported functions as requested by
+CRAN.
+\item Bumped version due to fritools back on CRAN.
+}
+}
+
 \section{Changes in version 1.3.5}{
 \itemize{
 \item Fixed broken internal documentation in \code{get_function_body.Rd}.

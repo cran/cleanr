@@ -11,8 +11,9 @@
 #' @return The function does never return anything, it stops with a
 #' condition of class c("error", "cleanr", "condition").
 #' @keywords internal
-#' @examples
-#' tryCatch(cleanr:::throw("Hello error!"), cleanr = function(e) return(e))
+# CRAN complains about examples in internal documentation of unexported function
+# #' @examples
+# #' tryCatch(cleanr:::throw("Hello error!"), cleanr = function(e) return(e))
 throw <- function(message_string, system_call = sys.call(-1), ...) {
     condition <- structure(class = c("error", "cleanr", "condition"),
                            list(message = message_string, call = system_call),

@@ -1,8 +1,8 @@
-[![pipeline status](https://gitlab.com/fvafrCU/cleanr/badges/master/pipeline.svg)](https://gitlab.com/fvafrCU/cleanr/-/commits/master)    
-[![coverage report](https://gitlab.com/fvafrCU/cleanr/badges/master/coverage.svg)](https://gitlab.com/fvafrCU/cleanr/-/commits/master)
+[![pipeline status](https://gitlab.com/fvafrcu/cleanr/badges/master/pipeline.svg)](https://gitlab.com/fvafrcu/cleanr/-/commits/master)    
+[![coverage report](https://gitlab.com/fvafrcu/cleanr/badges/master/coverage.svg)](https://gitlab.com/fvafrcu/cleanr/-/commits/master)
 <!-- 
-    [![Build Status](https://travis-ci.org/fvafrCU/cleanr.svg?branch=master)](https://travis-ci.org/fvafrCU/cleanr)
-    [![Coverage Status](https://codecov.io/github/fvafrCU/cleanr/coverage.svg?branch=master)](https://codecov.io/github/fvafrCU/cleanr?branch=master)
+    [![Build Status](https://travis-ci.org/fvafrcu/cleanr.svg?branch=master)](https://travis-ci.org/fvafrcu/cleanr)
+    [![Coverage Status](https://codecov.io/github/fvafrcu/cleanr/coverage.svg?branch=master)](https://codecov.io/github/fvafrcu/cleanr?branch=master)
 -->
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/cleanr)](https://cran.r-project.org/package=cleanr)
 [![RStudio_downloads_monthly](https://cranlogs.r-pkg.org/badges/cleanr)](https://cran.r-project.org/package=cleanr)
@@ -15,13 +15,7 @@ Check your R code for some of the most common layout flaws.
 
 
 ## Introduction
-Please read the
-[vignette](https://CRAN.R-project.org/package=cleanr/vignettes/cleanr_Introduction.html).
-<!-- 
-[vignette](https://fvafrCU.gitlab.io/cleanr/doc/An_Introduction_to_cleanr.html).
--->
-
-Or, after installation, the help page:
+After installation, please read the help page:
 
 ```r
 help("cleanr-package", package = "cleanr")
@@ -48,16 +42,15 @@ help("cleanr-package", package = "cleanr")
 #> Note:
 #> 
 #>      This is not a static code analyzer like pylint or the like. If
-#>      you're looking for a static code analyzer, check out lintr (<URL:
-#>      https://cran.r-project.org/package=lintr> or <URL:
-#>      https://github.com/jimhester/lintr>).
+#>      you're looking for a static code analyzer, check out lintr
+#>      (<https://cran.r-project.org/package=lintr>).
 #> 
 #> See Also:
 #> 
-#>      Packages 'codetools' (<URL:
-#>      https://cran.r-project.org/package=codetools>), 'formatR' (<URL:
-#>      https://cran.r-project.org/package=formatR>) and 'lintr' (<URL:
-#>      https://cran.r-project.org/package=lintr>).
+#>      Packages 'codetools'
+#>      (<https://cran.r-project.org/package=codetools>), 'formatR'
+#>      (<https://cran.r-project.org/package=formatR>) and 'lintr'
+#>      (<https://cran.r-project.org/package=lintr>).
 ```
 
 ## Installation
@@ -67,7 +60,7 @@ You can install cleanr from gitlab via:
 
 ```r
 if (! require("remotes")) install.packages("remotes")
-remotes::install_gitlab("fvafrCU/cleanr")
+remotes::install_gitlab("fvafrcu/cleanr")
 ```
 
 

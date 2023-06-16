@@ -1,3 +1,9 @@
+# cleanr 1.4.0
+
+* Omitted examples in documentation of unexported functions as requested by
+  CRAN.
+* Bumped version due to fritools back on CRAN.
+
 # cleanr 1.3.5
 
 * Fixed broken internal documentation in `get_function_body.Rd`.

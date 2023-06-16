@@ -23,8 +23,4 @@ remove TRUE converted to class character from findings.
 TRUE for a check passed or a character holding a conditions message. This
 function deletes the TRUES.
 }
-\examples{
-findings <- c("some signal caught", rep("TRUE", 3))
-cleanr:::tidy_findings(findings)
-}
 \keyword{internal}

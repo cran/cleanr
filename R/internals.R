@@ -14,11 +14,12 @@
 #' been sourced with keep.source = TRUE.
 #' @return \code{character(n)} the function body's lines.
 #' @keywords internal
-#' @examples
-#' source(system.file("source", "R", "utils.R", package = "cleanr"))
-#' require(checkmate)
-#' cleanr:::get_function_body(set_cleanr_options)[3:6]
-#' utils::capture.output(body(set_cleanr_options))[4:6]
+# CRAN complains about examples in internal documentation of unexported function
+# #' @examples
+# #' source(system.file("source", "R", "utils.R", package = "cleanr"))
+# #' require(checkmate)
+# #' cleanr:::get_function_body(set_cleanr_options)[3:6]
+# #' utils::capture.output(body(set_cleanr_options))[4:6]
 get_function_body <- function(object) {
     checkmate::checkFunction(object)
     checkmate::checkFunction(object)
@@ -50,31 +51,6 @@ get_function_body <- function(object) {
     return(lines_in_function[opening_line_num:closing_line_num])
 }
 
-#' throw a condition
-#'
-#' throws a condition of class c("cleanr", "error", "condition").
-#'
-#' We use this condition as an error dedicated to \pkg{cleanr}.
-#'
-#' @keywords internal
-#' @param message_string The message to be thrown.
-#' @param system_call The call to be thrown.
-#' @param ... Arguments to be passed to \code{\link{structure}}.
-#' @return FALSE. But it does not return anything, it stops with a
-#' condition of class c("cleanr", "error", "condition").
-#' @keywords internal
-#' @examples
-#' tryCatch(cleanr:::throw("Hello error!"), cleanr = function(e) return(e))
-throw <- function(message_string, system_call = sys.call(-1), ...) {
-    checkmate::qassert(message_string, "s*")
-    condition <- structure(
-                           class = c("cleanr", "error",  "condition"),
-                           list(message = message_string, call = system_call),
-                           ...
-                           )
-    stop(condition)
-}
-
 #' tidy findings
 #'
 #' remove TRUE converted to class character from findings.
@@ -89,9 +65,10 @@ throw <- function(message_string, system_call = sys.call(-1), ...) {
 #' or a vector of TRUES.
 #' @return a character vector without any element reading "TRUE" or NULL.
 #' @keywords internal
-#' @examples
-#' findings <- c("some signal caught", rep("TRUE", 3))
-#' cleanr:::tidy_findings(findings)
+# CRAN complains about examples in internal documentation of unexported function
+# #' @examples
+# #' findings <- c("some signal caught", rep("TRUE", 3))
+# #' cleanr:::tidy_findings(findings)
 tidy_findings <- function(findings) {
     if (is.logical(findings)) {
         ## findings may be all TRUE, so we set them NULL

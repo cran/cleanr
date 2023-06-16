@@ -25,10 +25,4 @@ seems to use \code{\link{body}}.
 So we have to do it all over after sourcing with keep.source = TRUE (in
 \code{\link{check_functions_in_file}}).
 }
-\examples{
-source(system.file("source", "R", "utils.R", package = "cleanr"))
-require(checkmate)
-cleanr:::get_function_body(set_cleanr_options)[3:6]
-utils::capture.output(body(set_cleanr_options))[4:6]
-}
 \keyword{internal}
